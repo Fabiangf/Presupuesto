@@ -1,0 +1,26 @@
+@media print {
+    .print-ignore {
+        display: none !important;
+    }
+
+    .print-area {
+        display: block !important;
+    }
+}
+
+.error {
+    font-size: 10px;
+    color: red;
+    margin: 0;
+    padding: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.mat-form-field-wrapper {
+    padding: 0 !important;
+}
