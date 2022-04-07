@@ -1,31 +1,38 @@
-<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="25px" class="content print-ignore">
-  <form [formGroup]="formGroupPresupuesto">
-    <div fxLayout="column" style="width: 720px; margin:0" fxLayoutAlign="center center">
-      <div fxLayout="row" fxFill fxLayoutAlign="center center">
-        <div fxLayout="column" fxFlex="50">
-          <mat-form-field appearance="outline" floatLabel="never">
-            <input matInput [(ngModel)]="presupuesto.Numero" formControlName="Numero" placeholder="Numero" name="Numero"
-              required>
-            <mat-error *ngIf="formGroupPresupuesto.controls['Numero'].errors?.['required']"
-              fxLayoutAlign="start center">
-              <mat-icon matPrefix style="margin-right: 4px;">error</mat-icon>Este campo es
-              obligatorio.
-            </mat-error>
-          </mat-form-field>
-        </div>
-        <div fxLayout="column" fxFlex="50">
-          <mat-form-field appearance="outline" floatLabel="never">
-            <input matInput [(ngModel)]="presupuesto.Cliente" formControlName="Cliente" placeholder="Cliente"
-              name="Cliente" required>
-            <mat-error *ngIf="formGroupPresupuesto.controls['Cliente'].errors?.['required']"
-              fxLayoutAlign="start center">
-              <mat-icon matPrefix style="margin-right: 4px;">error</mat-icon>Este campo es
-              obligatorio.
-            </mat-error>
-          </mat-form-field>
-        </div>
-      </div>
-      <div fxLayout="row" fxFill fxLayoutAlign="center center">
+<div fxLayout="column" class="content print-ignore">
+  <div fxLayout="row" fxLayoutAlign="start start">
+    <h2><mat-icon>
+      request_quote
+    </mat-icon>Nuevo presupuesto</h2>
+  </div>
+  <div fxLayout="row">
+  <form [formGroup]="formGroupPresupuesto" fxLayout="column" fxFlex="100">
+    <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="25px">
+    <div fxLayout="column" fxFlex="50">
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput [(ngModel)]="presupuesto.Numero" formControlName="Numero" placeholder="Numero" name="Numero"
+          required>
+        <mat-error *ngIf="formGroupPresupuesto.controls['Numero'].errors?.['required']"
+          fxLayoutAlign="start center">
+          <mat-icon matPrefix style="margin-right: 4px;">error</mat-icon>Este campo es
+          obligatorio.
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="column" fxFlex="50">
+      <mat-form-field appearance="outline" floatLabel="never">
+        <input matInput [(ngModel)]="presupuesto.Cliente" formControlName="Cliente" placeholder="Cliente"
+          name="Cliente" required>
+        <mat-error *ngIf="formGroupPresupuesto.controls['Cliente'].errors?.['required']"
+          fxLayoutAlign="start center">
+          <mat-icon matPrefix style="margin-right: 4px;">error</mat-icon>Este campo es
+          obligatorio.
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="25px">
         <div fxLayout="column" fxFlex="50">
           <mat-form-field appearance="outline" floatLabel="never">
             <input matInput [(ngModel)]="presupuesto.Domicilio" formControlName="Domicilio" placeholder="Domicilio"
@@ -39,7 +46,7 @@
           </mat-form-field>
         </div>
       </div>
-      <div fxLayout="row" fxFill fxLayoutAlign="center center">
+      <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="25px">
         <div fxLayout="column" fxFlex="50">
           <mat-form-field appearance="outline" floatLabel="never">
             <input matInput [(ngModel)]="presupuesto.Fecha" formControlName="Fecha" placeholder="Fecha" name="Fecha">
@@ -52,7 +59,7 @@
           </mat-form-field>
         </div>
       </div>
-      <div fxLayout="row" fxFill fxLayoutAlign="center center">
+      <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="25px">
         <div fxLayout="column" fxFlex="50">
           <mat-form-field appearance="outline" floatLabel="never">
             <input matInput [(ngModel)]="presupuesto.Expediente" formControlName="Expediente" placeholder="Expediente"
@@ -66,7 +73,7 @@
           </mat-form-field>
         </div>
       </div>
-      <div fxLayout="row" fxFill fxLayoutAlign="center center">
+      <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="25px">
         <div fxLayout="column" fxFlex="50">
           <mat-form-field appearance="outline" floatLabel="never">
             <input matInput [(ngModel)]="presupuesto.PlazoEntrega" formControlName="PlazoEntrega"
@@ -87,10 +94,10 @@
         </div>
       </div>
       
-      <div fxLayout="row" fxFill fxLayoutAlign="start center">
+      <div fxLayout="row" fxFlexOffset="2" fxLayoutAlign="space-between start" fxLayoutGap="25px">
         <div fxLayout="column" fxFlex="50">
          <h3>
-           <button mat-mini-fab color="primary" (click)="addItem()" style="margin-right: 5px;">
+           <button mat-mini-fab  (click)="addItem()" style="margin-right: 5px; background-color: #42AEEF; color: white;">
             <mat-icon>add </mat-icon>
             </button>
              <strong>Agregar items</strong>
@@ -98,7 +105,8 @@
         </div>        
       </div>
 
-      <div fxLayout="column" fxFill *ngIf="presupuesto.Items.length > 0">
+      <div fxLayout="row" fxFlexOffset="4" *ngIf="presupuesto.Items.length > 0">
+      <div fxLayout="column">
         <div fxLayout="row" fxLayoutGap="25px" fxLayoutAlign="start center">
           <div fxLayout="column" fxFlex="15">
             <strong>Cantidad</strong>
@@ -139,16 +147,95 @@
       </div>  
 
 
-      <button mat-raised-button fxLayout="row" fxFlexOffset="5" fxLayoutAlign="center center" (click)="print()"
-        color="primary">Imprimir</button>
     </div>
+<div fxLayout="row" fxFlexOffset="6" fxLayoutAlign="center center">
+    <button mat-raised-button (click)="print()"
+    style="background-color: #42AEEF; color: white;">Imprimir</button></div>
   </form>
+</div>
 </div>
 
 
 <!-- Acá va el formulario de presupuesto para Imprimir, esto solo va a ser visible cuando tiro el window.print -->
-<div style="display: none;" class="print-area">
-  <h1>Printing test</h1>
-</div>
+<!-- <div style="display: none;" class="print-area"> -->
+  <div style="display: none;" class="print-area">
+    <div fxLayout="row" style="height: 150px;">
+        <div class="header-logo" fxLayout="column" fxFlex="46" fxLayoutAlign="center center"> 
+        <img src="../assets/logo-ortopediaCatedral.png" width="200px">
+            <p>Calle 13 Nº 195 e/ 35 y 36 - Tel/Fax: 0221 4821091 <br> La Plata - Pcia. Bs. As. - ortopediacatedral@gmail.com</p>
+            <p style="font-weight: 600">I.V.A. Responsable Inscripto</p>
+        </div>
+        <div class="header-col2" fxLayout="column" fxFlex="9" fxLayoutAlign="center center">
+        <h1>X</h1>
+        </div>
+        <div class="header-col3" fxLayout="column" fxFlex="45">
+            <h3>PRESUPUESTO</h3>
+            <p style="margin-bottom: 8px">Documento no valido como factura</p>
+            <p>C.U.I.T: 30-71201574-4</p>
+            <p>Ing. Brutos: 30-71201574-4</p>
+            <p>Inicio Act. 18/07/11</p>         
+        </div>
+    </div>
+    <mat-divider class="divider" style="border-color:#6D6E71"></mat-divider>
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="25px" class="container-margin">
+        <div class="column" fxFlex="60">
+            <div style="display: flex; margin: 15px 0;">
+                <span class="title-input">Sr./Sres:</span>
+                <div class="complete-input"></div>
+            </div>
+            <div style="display: flex; margin: 15px 0;">
+                <span class="title-input">Domicilio:</span>
+                <div class="complete-input"></div>
+            </div>
+            <div style="display: flex; margin: 15px 0;">
+                <span class="title-input">Pac.:</span>
+                <div class="complete-input"></div>
+            </div>  
+        </div>
+        <div class="column" fxFlex="40">
+            <div style="display: flex; margin: 15px 0;">
+                <span class="title-input">Fecha:</span>
+                <div class="complete-input"></div>
+            </div>
+            <div style="display: flex; margin: 15px 0;">
+                <span class="title-input">Tel.:</span>
+                <div class="complete-input"></div>
+            </div>
+            <div style="display: flex; margin: 15px 0;">
+                <span class="title-input">Expediente:</span>
+                <div class="complete-input"></div>
+            </div>  
+        </div>
+    </div>
+    <mat-divider class="divider" style="border-color:#42AEEF"></mat-divider>    
+    
+    <div fxLayout="row">
+    <table mat-table fxFlex="100">
+      <ng-container matColumnDef="item">
+        <th mat-header-cell *matHeaderCellDef fxFlex="20">Item</th>
+        <td mat-cell *matCellDef="let element" fxFlex="20"></td>
+      </ng-container>
+      <ng-container matColumnDef="cantidad">
+        <th mat-header-cell *matHeaderCellDef fxFlex="10">Cant.</th>
+        <td mat-cell *matCellDef="let element" fxFlex="10"></td>
+      </ng-container>
+      <ng-container matColumnDef="detalle">
+        <th mat-header-cell *matHeaderCellDef fxFlex="50" style="text-align: center;">Detalle</th>
+        <td mat-cell *matCellDef="let element" fxFlex="50"></td>
+      </ng-container>
+      <ng-container matColumnDef="unitario">
+        <th mat-header-cell *matHeaderCellDef fxFlex="10">Unitario</th>
+        <td mat-cell *matCellDef="let element" fxFlex="10"></td>
+      </ng-container>
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef fxFlex="10">Total</th>
+        <td mat-cell *matCellDef="let element" fxFlex="10"></td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  </div>
+
 
 <router-outlet></router-outlet>

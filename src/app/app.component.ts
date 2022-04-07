@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { FormaPago, Item, Presupuesto } from 'src/models/presupuesto';
 
@@ -24,6 +25,9 @@ export class AppComponent implements OnInit {
     { Id: 3, Descripcion: 'Transferencia' },
     { Id: 4, Descripcion: 'Tarjeta' }
   ]
+
+  displayedColumns: string[] = ['item', 'cantidad', 'detalle', 'unitario', 'total'];
+  dataSource = MatTableDataSource;
 
   constructor(
 
